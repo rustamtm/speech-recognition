@@ -4,21 +4,31 @@ Real-time speech recognition web app powered by [faster-whisper](https://github.
 
 ## Quick Start
 
-1. **Start the ASR server**
-   ```bash
-   cd app/server
-   bash run.sh
-   ```
-   This creates a virtualenv, installs dependencies and launches the WebSocket server on `ws://127.0.0.1:8765`.
+1. **Run both client and server together**
 
-2. **Serve the client**
-   - Option A: open `app/client/index.html` in a browser directly.
-   - Option B: use the lightweight static host:
+   ```bash
+   npm run dev
+   ```
+
+   This starts the WebSocket ASR server and serves the client concurrently using helper scripts in `app/`.
+
+2. **Or start each component manually**
+
+   - **Start the ASR server**
      ```bash
-     cd app
-     npx serve
+     cd app/server
+     bash run.sh
      ```
-     or run `npm run serve` if you installed dependencies.
+     This creates a virtualenv, installs dependencies and launches the WebSocket server on `ws://127.0.0.1:8765`.
+
+   - **Serve the client**
+     - Option A: open `app/client/index.html` in a browser directly.
+     - Option B: use the lightweight static host:
+       ```bash
+       cd app
+       npx serve
+       ```
+       or run `npm run serve` if you installed dependencies.
 
 3. Open the page in your browser, grant microphone permission, choose a language and press **Start**.
 
