@@ -1,0 +1,13 @@
+{
+  "name": "whisper-live-transcriber",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "node -e \"require('http').createServer((req,res)=>require('fs').createReadStream(require('path').join('client', req.url==='/'?'/index.html':req.url)).on('error',()=>res.end('404')).pipe(res)).listen(8080); console.log('http://127.0.0.1:8080')\"",
+    "asr": "bash server/run.sh",
+    "dev": "concurrently \"npm:serve\" \"npm:asr\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
