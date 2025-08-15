@@ -1,0 +1,9 @@
+{
+  "name": "whisper-live-transcriber-root",
+  "private": true,
+  "scripts": {
+    "serve": "npm --prefix app run serve",
+    "asr": "npm --prefix app run asr",
+    "dev": "npm --prefix app run dev"
+  }
+}
