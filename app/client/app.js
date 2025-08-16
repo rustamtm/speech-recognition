@@ -33,6 +33,19 @@ function render() {
   }
 }
 
+window.addEventListener("error", (e) => {
+  try {
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(
+        JSON.stringify({
+          type: "client-error",
+          message: String(e.message || "").slice(0, 200),
+        })
+      );
+    }
+  } catch {}
+});
+
 function floatTo16BitPCM(float32Array) {
   const buf = new Int16Array(float32Array.length);
   for (let i = 0; i < float32Array.length; i++) {
